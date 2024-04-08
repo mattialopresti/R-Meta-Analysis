@@ -35,13 +35,13 @@ MtgFormat = MtgFormats[4]
 TournamentResultFile = paste0(tournamentDataDir,MtgFormat,"_data.json")
 # Name of the MTG JSON card data source file for the corresponding format
 # Currently automatically updated based on the format name
-mtgJsonFile = paste0(cardDataDir,MtgFormat,"Atomic.json")
+#mtgJsonFile = paste0(cardDataDir,MtgFormat,"Atomic.json")
 
 #Earliest date - if NA, starts from the beginning of the data
-Beginning = "2024-03-11"
+Beginning = "2024-03-26"
 
 #Latest date - if NA, goes up to the end of the data
-End = "2024-04-01"
+End = "2024-04-08"
 
 # Event type:
 # All sources = Everything (except from MTGO Leagues and Team events - for any filter)
@@ -127,7 +127,7 @@ AverageDeckListResultDir = paste0(TextResultDir, "Average Deck Lists/")
 OptimizedDeckListResultDir = paste0(TextResultDir, "Optimized Deck Lists/")
 BestDeckResultDir = paste0(TextResultDir, "Best Deck URL/")
 AllDeckURLResultDir = paste0(TextResultDir, "All Deck URL/")
-writeCSV = F
+writeCSV = T
 writeXLSX = T
 writeJSON = F
 

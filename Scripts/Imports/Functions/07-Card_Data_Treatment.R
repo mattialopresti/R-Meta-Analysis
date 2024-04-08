@@ -80,12 +80,14 @@ get_card_data = function(df){
                                   digits = 2)
   
   CardData$Win.Rate.CI.Lower.Bound = mapply(FUN = function(wins, defeats){
-    round(binom.test(wins, wins + defeats, p = 0.5, alternative = "two.sided", 
+    azz <- wins + defeats
+    round(binom.test(wins, azz, p = 0.5, alternative = "two.sided", 
                      conf.level = CIPercent)$conf.int[1] * 100, digits = 2)
   }, CardData$Wins, CardData$Losses)
   
   CardData$Win.Rate.CI.Upper.Bound =  mapply(FUN = function(wins, defeats){
-    round(binom.test(wins, wins + defeats, p = 0.5, alternative = "two.sided", 
+    azz <- wins + defeats
+    round(binom.test(wins, azz, p = 0.5, alternative = "two.sided", 
                      conf.level = CIPercent)$conf.int[2] * 100, digits = 2)
   }, CardData$Wins, CardData$Losses)
   

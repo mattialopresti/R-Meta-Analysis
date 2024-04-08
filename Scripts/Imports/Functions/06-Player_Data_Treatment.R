@@ -99,12 +99,14 @@ get_player_data = function(df){
                               digits = 2)
   
   playerDataDf$Win.Rate.CI.Lower.Bound = mapply(FUN = function(wins, losses){
-    round(binom.test(wins, wins + losses, p = 0.5, alternative = "two.sided", 
+    azz <- wins + losses
+    round(binom.test(wins, azz, p = 0.5, alternative = "two.sided", 
                conf.level = CIPercent)$conf.int[1] * 100, digits = 2)
   }, playerDataDf$Wins, playerDataDf$Losses)
   
   playerDataDf$Win.Rate.CI.Upper.Bound =  mapply(FUN = function(wins, losses){
-    round(binom.test(wins, wins + losses, p = 0.5, alternative = "two.sided", 
+    azz <- wins + losses
+    round(binom.test(wins, azz, p = 0.5, alternative = "two.sided", 
                conf.level = CIPercent)$conf.int[2] * 100, digits = 2)
   }, playerDataDf$Wins, playerDataDf$Losses)
   

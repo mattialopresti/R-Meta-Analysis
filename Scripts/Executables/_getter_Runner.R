@@ -12,6 +12,7 @@
 
 # Import the parameters, libraries and functions from other scripts
 # Once the code is stable, it should be turned into packages
+setwd("C:/Users/tia_l/Documenti/GitHub/R-Meta-Analysis/")
 ScriptDir = "Scripts/"
 importableScriptDir = paste0(ScriptDir,"Imports/")
 

@@ -28,9 +28,9 @@ source(file.path(paste0(functionScriptDir,"06-Player_Data_Treatment.R")))
 source(file.path(paste0(functionScriptDir,"07-Card_Data_Treatment.R")))
 source(file.path(paste0(functionScriptDir,"99-Output_Export.R")))
 
-ConstructedFormats = MtgFormats[-c(1,8)]
+ConstructedFormats = MtgFormats[4]# MtgFormats[-c(1,2,5,6,7,8)]
 
-for(MtgFormat in ConstructedFormats){
+#for(MtgFormat in ConstructedFormats){ <- Togliere questo commento per ripristinare il codice e farlo correre su tutti i formati
   
   print(paste("FORMAT:",MtgFormat,"- Load data"))
   # Name of the tournament result data source file for the corresponding format
@@ -181,12 +181,12 @@ for(MtgFormat in ConstructedFormats){
   
   print(paste("FORMAT:",MtgFormat,"- Write the CSVs"))
   # Write the player results
-  exportPlayerData(tournamentDf,PathToLastDirs,Beginning,End,MtgFormat,EventType,
-                   PlayerDataResultDir,writeCSV,writeXLSX,writeJSON)
-  
-  # Write the card results
-  exportCardData(tournamentDf,PathToLastDirs,Beginning,End,MtgFormat,EventType,
-                 CardDataResultDir,writeCSV,writeXLSX,writeJSON)
+  # exportPlayerData(tournamentDf,PathToLastDirs,Beginning,End,MtgFormat,EventType,
+  #                  PlayerDataResultDir,writeCSV,writeXLSX,writeJSON)
+  # 
+  # # Write the card results
+  # exportCardData(tournamentDf,PathToLastDirs,Beginning,End,MtgFormat,EventType,
+  #                CardDataResultDir,writeCSV,writeXLSX,writeJSON)
   
   # Write the archetype card results
   archetypeCardData = lapply(archetypeWithTiersDf$Archetype, function(archetypeName){
@@ -212,6 +212,6 @@ for(MtgFormat in ConstructedFormats){
     # exportOptimizedDeckList(archetypeName,tournamentDf,PathToLastDirs,Beginning,
     #                       End,MtgFormat,EventType,OptimizedDeckListResultDir)
   })
-}
+#} <-  E pure questo va tolto altrimenti non chiudiamo il loop
 
 

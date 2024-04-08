@@ -226,12 +226,14 @@ archetype_metrics = function(df, presence){
     (metric_df$Wins + metric_df$Defeats)
   
   metric_df$Lower.Bound.of.CI.on.WR = mapply(FUN = function(wins, defeats){
-    binom.test(wins, wins + defeats, p = 0.5, alternative = "two.sided", 
+    azz <- wins + defeats
+    binom.test(wins, azz, p = 0.5, alternative = "two.sided", 
                conf.level = CIPercent)$conf.int[1] * 100
   }, metric_df$Wins, metric_df$Defeats)
   
   metric_df$Upper.Bound.of.CI.on.WR =  mapply(FUN = function(wins, defeats){
-    binom.test(wins, wins + defeats, p = 0.5, alternative = "two.sided", 
+    azz <- wins + defeats
+    binom.test(wins, azz, p = 0.5, alternative = "two.sided", 
                conf.level = CIPercent)$conf.int[2] * 100
   }, metric_df$Wins, metric_df$Defeats)
   
